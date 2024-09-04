@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie/tabs/browse.dart';
+import 'package:movie/tabs/home.dart';
+import 'package:movie/tabs/search.dart';
+import 'package:movie/tabs/watch_list.dart';
 import 'package:movie/utils/bloc_observer.dart';
 import 'package:movie/utils/my_theme_data.dart';
 
@@ -24,6 +28,10 @@ class MyApp extends StatelessWidget {
 
       routes: {
         HomeScreen.routeName:(context)=> HomeScreen(),
+        Home.routeName:(context)=> Home(),
+        Search.routeName:(context)=> Search(),
+        Browse.routeName:(context)=> Browse(),
+        WatchList.routeName:(context)=> WatchList(),
       },
     );
   }
