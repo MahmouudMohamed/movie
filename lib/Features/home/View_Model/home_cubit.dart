@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie/utils/EndPoint/const.dart';
 import 'package:movie/utils/EndPoint/end_points.dart';
 import 'package:http/http.dart' as http;
 import '../../../tabs/browse.dart';
@@ -49,7 +50,7 @@ class HomeCubit extends Cubit<HomeState> {
     );
 
     try {
-      var response = await http.get(url, headers: EndPoints.headers);
+      var response = await http.get(url, headers: Const.headers);
       if (response.statusCode == 200) {
         popularMoviesModel = PopularMoviesModel.fromJson(
           jsonDecode(response.body),
@@ -73,7 +74,7 @@ class HomeCubit extends Cubit<HomeState> {
       },
     );
     try {
-      var response = await http.get(url, headers: EndPoints.headers);
+      var response = await http.get(url, headers: Const.headers);
       if (response.statusCode == 200) {
         newReleaseModel = NewReleaseModel.fromJson(
           jsonDecode(response.body),
@@ -97,7 +98,7 @@ class HomeCubit extends Cubit<HomeState> {
       },
     );
     try {
-      var response = await http.get(url, headers: EndPoints.headers);
+      var response = await http.get(url, headers: Const.headers);
       if (response.statusCode == 200) {
         recommendedModel = RecommendedModel.fromJson(
           jsonDecode(response.body),
