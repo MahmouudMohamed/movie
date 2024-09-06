@@ -62,8 +62,7 @@ class RecommendedViewMovie extends StatelessWidget {
                           child: Stack(
                             children: [
                               CachedNetworkImage(
-                                imageUrl:
-                                    "${Const.path}${cubit.recommendedModel!.results![index].posterPath!}",
+                                imageUrl:"${Const.path}${cubit.recommendedModel!.results![index].posterPath!}",
                                 fit: BoxFit.fill,
                                 height: MediaQuery.sizeOf(context).height * 0.26,
                                 width: MediaQuery.sizeOf(context).height * 0.19,
