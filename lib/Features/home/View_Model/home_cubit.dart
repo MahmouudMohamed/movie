@@ -4,12 +4,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie/utils/EndPoint/end_points.dart';
 import 'package:http/http.dart' as http;
 import '../../../tabs/browse.dart';
-import '../../../tabs/home.dart';
 import '../../../tabs/search.dart';
 import '../../../tabs/watch_list.dart';
-import '../model/NewReleaseModel.dart';
-import '../model/PopularMoviesModel.dart';
-import '../model/RecommendedModel.dart';
+import '../Recommended/model/RecommendedModel.dart';
+import '../view/home.dart';
+import '../New Releases/model/NewReleaseModel.dart';
+import '../Popular/model/PopularMoviesModel.dart';
 
 part 'home_state.dart';
 
@@ -18,6 +18,7 @@ class HomeCubit extends Cubit<HomeState> {
 
   static HomeCubit get(context) => BlocProvider.of(context);
   int index = 0;
+  bool checkMark = false;
   List<Widget> page = [
     Home(),
     Search(),
@@ -31,6 +32,10 @@ class HomeCubit extends Cubit<HomeState> {
   changeHomeScreen(value) {
     index = value;
     emit(ChangeHomeState());
+  }
+  changeBookMark() {
+    checkMark = !checkMark;
+    emit(ChangeBookMarkState());
   }
 
   getPopular() async {

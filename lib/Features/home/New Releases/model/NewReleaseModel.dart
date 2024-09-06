@@ -1,4 +1,4 @@
-import 'PopularMoviesModel.dart';
+import '../../Popular/model/PopularMoviesModel.dart';
 
 class NewReleaseModel {
   NewReleaseModel({
