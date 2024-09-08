@@ -11,17 +11,19 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
-      child: Column(
-        children: [
-          PopularWidget(),
-          NewReleasesWidget(),
-          Padding(
-            padding: EdgeInsets.only(bottom: 20.0),
-            child: RecommendedWidget(),
-          ),
-
-        ],
+    return SafeArea(
+      child: const SingleChildScrollView(
+        child: Column(
+          children: [
+            PopularWidget(),
+            NewReleasesWidget(),
+            Padding(
+              padding: EdgeInsets.only(bottom: 20.0),
+              child: RecommendedWidget(),
+            ),
+      
+          ],
+        ),
       ),
     );
   }
