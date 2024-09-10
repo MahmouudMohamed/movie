@@ -23,7 +23,7 @@ class CustomBrowse extends StatelessWidget {
                     fontSize: 22,
                   )),
         ),
-         SizedBox(
+        SizedBox(
           height: MediaQuery.of(context).size.height * 0.02,
         ),
         Expanded(
