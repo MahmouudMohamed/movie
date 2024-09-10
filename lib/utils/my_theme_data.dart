@@ -33,7 +33,9 @@ class MyThemeData {
       bodyMedium: GoogleFonts.poppins(
         fontSize: 10,
         color: AppColor.bodyLargeText,
-      )
+      ),
+
+
     ),
 
     cardTheme: const CardTheme(

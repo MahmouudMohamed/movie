@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie/utils/EndPoint/const.dart';
 
 import '../../../../utils/Shared Widget/book_mark.dart';
+import '../../../film_details.dart';
 import '../../View_Model/home_cubit.dart';
 
 class NewReleasesViewMovie extends StatelessWidget {
@@ -38,7 +39,7 @@ class NewReleasesViewMovie extends StatelessWidget {
 
             if (state is NewReleaseSuccessState) {
               return  SizedBox(
-                height: MediaQuery.sizeOf(context).height * 0.26,
+                height: MediaQuery.sizeOf(context).height * 0.29,
                 child: ListView.separated(
                   separatorBuilder: (context, index) => const SizedBox(width: 15,),
                   scrollDirection: Axis.horizontal,
@@ -46,18 +47,18 @@ class NewReleasesViewMovie extends StatelessWidget {
                     return Column(
                       children: [
                         InkWell(
-                          // onTap: () {
-                          //   //id
-                          //   Navigator.pushNamed(context, FilmDetails.routeName,arguments :view.newReleaseModel?.results?[index].id);
-                          // },
+                          onTap: () {
+                            //id
+                            Navigator.pushNamed(context, FilmDetails.routeName,arguments :view.newReleaseModel?.results?[index].id);
+                          },
                           child: Card(
                             child: Stack(
                               children: [
                               CachedNetworkImage(
                               imageUrl: "${Const.path}${view.newReleaseModel?.results?[index].posterPath??""}",
                               fit: BoxFit.fill,
-                              height: MediaQuery.sizeOf(context).height * 0.25,
-                              width:140 ,
+                              height: MediaQuery.sizeOf(context).height * 0.28,
+                              width:MediaQuery.sizeOf(context).width * 0.38 ,
                               placeholder: (context, text) =>
                                   const Center(child: CircularProgressIndicator(color: Colors.yellow,)),
                               errorWidget: (context, url, error) => const Icon(Icons.error),

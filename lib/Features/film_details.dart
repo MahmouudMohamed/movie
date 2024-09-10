@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class Browse extends StatelessWidget {
-  static const String routeName = "Browse";
-  const Browse({super.key});
+class FilmDetails extends StatelessWidget {
+  static const String routeName = "FilmDetails";
+  const FilmDetails({super.key});
 
   @override
   Widget build(BuildContext context) {
