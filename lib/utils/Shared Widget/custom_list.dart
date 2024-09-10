@@ -32,6 +32,7 @@ class CustomList extends StatelessWidget {
       child: Column(
         children: [
           InkWell(
+            overlayColor: WidgetStateColor.transparent,
             onTap: () {
               Navigator.pushNamed(context, FilmDetails.routeName,
                   arguments: id);

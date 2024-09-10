@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie/utils/Shared%20Widget/custom_list.dart';
 
-import '../view_model/category_cubit.dart';
+import '../../view_model/category_cubit.dart';
 
 class CustomBrowserDetails extends StatelessWidget {
   dynamic arguments;
@@ -15,9 +15,7 @@ class CustomBrowserDetails extends StatelessWidget {
         appBar: AppBar(
           title: Text(
             arguments.name.toString(),
-            style: const TextStyle(
-              color: Colors.white,
-            ),
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontSize: 22),
           ),
         ),
         body: SingleChildScrollView(
@@ -36,7 +34,7 @@ class CustomBrowserDetails extends StatelessWidget {
                       crossAxisCount: 2,
                       crossAxisSpacing: 2,
                       mainAxisSpacing: 10,
-                      childAspectRatio: 0.63),
+                      childAspectRatio: 0.62),
                   itemBuilder: (context, index) =>
                       CustomList(
                         height: MediaQuery.sizeOf(context).height * 0.30,

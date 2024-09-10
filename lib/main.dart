@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie/Features/home/View_Model/home_cubit.dart';
-import 'package:movie/tabs/search.dart';
 import 'package:movie/tabs/watch_list.dart';
 import 'package:movie/utils/bloc_observer.dart';
 import 'package:movie/utils/my_theme_data.dart';
-
-import 'Features/browse/view/browse.dart';
-import 'Features/browse/view/browse_details.dart';
+import 'Features/browse/view/Category/browse.dart';
+import 'Features/browse/view/Category Details/browse_details.dart';
 import 'Features/film_details.dart';
 import 'Features/home/view/home.dart';
+import 'Features/search/view/search.dart';
 import 'home_screen.dart';
 
 void main() async {

@@ -4,9 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie/utils/EndPoint/const.dart';
 import 'package:movie/utils/EndPoint/end_points.dart';
 import 'package:http/http.dart' as http;
-import '../../../tabs/search.dart';
 import '../../../tabs/watch_list.dart';
-import '../../browse/view/browse.dart';
+import '../../browse/view/Category/browse.dart';
+import '../../search/view/search.dart';
 import '../Recommended/model/RecommendedModel.dart';
 import '../view/home.dart';
 import '../New Releases/model/NewReleaseModel.dart';
@@ -21,9 +21,9 @@ class HomeCubit extends Cubit<HomeState> {
   int index = 0;
   bool checkMark = false;
   List<Widget> page = [
-    Home(),
-    Search(),
-    Browse(),
+    const Home(),
+    const Search(),
+    const Browse(),
     WatchList(),
   ];
   PopularMoviesModel? popularMoviesModel;

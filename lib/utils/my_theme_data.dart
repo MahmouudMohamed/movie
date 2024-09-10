@@ -8,6 +8,7 @@ import 'app_color.dart';
 class MyThemeData {
   static ThemeData lightTheme = ThemeData(
     appBarTheme: AppBarTheme(elevation: 0,backgroundColor: AppColor.appbarColor, centerTitle: true,
+        scrolledUnderElevation: 0,
         iconTheme:IconThemeData(color: Colors.white,size: 30) ),
     primaryColor: AppColor.primaryColor,
     scaffoldBackgroundColor: AppColor.primaryColor,
@@ -34,6 +35,12 @@ class MyThemeData {
         fontSize: 10,
         color: AppColor.bodyLargeText,
       ),
+      titleLarge: GoogleFonts.inter(
+        fontSize: 15,
+        fontWeight: FontWeight.w400,
+        color: Colors.white,
+      ),
+
 
 
     ),
@@ -42,7 +49,8 @@ class MyThemeData {
       color: Colors.transparent,
       elevation: 0,
       clipBehavior: Clip.antiAlias,
-    )
+    ),
+
   );
 
 }

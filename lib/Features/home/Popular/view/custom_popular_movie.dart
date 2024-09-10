@@ -1,7 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:movie/utils/Shared%20Widget/book_mark.dart';
-
 import '../../../../utils/Shared Widget/custom_rate.dart';
 import '../../../../utils/EndPoint/const.dart';
 import '../../../film_details.dart';
@@ -44,7 +42,6 @@ class CustomPopularMovie extends StatelessWidget {
                           );
                         },
                         child: Card(
-      
                           child: Stack(
                             children: [
                               CachedNetworkImage(
