@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:http/http.dart' as http;
+import 'package:movie/utils/EndPoint/end_points.dart';
 
 import '../../../utils/EndPoint/const.dart';
 import '../model/CategoryModel.dart';
@@ -23,7 +24,7 @@ class CategoryCubit extends Cubit<CategoryState> {
     emit(GenreMovieLoadingState());
     Uri url = Uri.https(
       host,
-      "/3/genre/movie/list",
+      EndPoints.movieGenres,
       {
         'language': 'en',
       },
@@ -47,7 +48,7 @@ class CategoryCubit extends Cubit<CategoryState> {
     emit(BrowseShowLoadingState());
     Uri url = Uri.https(
       host,
-      "/3/discover/movie",
+      EndPoints.discoverMovie,
       {
         'language': 'en',
         'with_genres': categoryId.toString(),
