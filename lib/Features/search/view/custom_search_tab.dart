@@ -21,7 +21,7 @@ class CustomSearchTab extends StatelessWidget {
         return Column(
           children: [
             SizedBox(
-              height: MediaQuery.sizeOf(context).height * 0.35,
+              height: MediaQuery.sizeOf(context).height * 0.30,
             ),
             Image.asset(
               "assets/images/empty.png",

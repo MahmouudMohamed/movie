@@ -1,15 +1,12 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import 'app_color.dart';
-
 class MyThemeData {
   static ThemeData lightTheme = ThemeData(
     appBarTheme: AppBarTheme(elevation: 0,backgroundColor: AppColor.appbarColor, centerTitle: true,
         scrolledUnderElevation: 0,
-        iconTheme:IconThemeData(color: Colors.white,size: 30) ),
+        iconTheme:const IconThemeData(color: Colors.white,size: 30) ),
     primaryColor: AppColor.primaryColor,
     scaffoldBackgroundColor: AppColor.primaryColor,
     bottomNavigationBarTheme: BottomNavigationBarThemeData(

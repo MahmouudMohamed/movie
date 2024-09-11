@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
                     onTap: (value) {
                       cubit.changeHomeScreen(value);
                     },
-                    items: [
+                    items: const [
                       BottomNavigationBarItem(
                         icon: Column(
                           children: [

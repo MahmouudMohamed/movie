@@ -19,7 +19,6 @@ class HomeCubit extends Cubit<HomeState> {
 
   static HomeCubit get(context) => BlocProvider.of(context);
   int index = 0;
-  bool checkMark = false;
   List<Widget> page = [
     const Home(),
     const Search(),
@@ -30,13 +29,14 @@ class HomeCubit extends Cubit<HomeState> {
   NewReleaseModel? newReleaseModel;
   RecommendedModel? recommendedModel;
 
-  changeHomeScreen(value) {
-    index = value;
-    emit(ChangeHomeState());
-  }
+  bool checkMark = false;
   changeBookMark() {
     checkMark = !checkMark;
     emit(ChangeBookMarkState());
+  }
+  changeHomeScreen(value) {
+    index = value;
+    emit(ChangeHomeState());
   }
 
   getPopular() async {

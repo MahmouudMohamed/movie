@@ -1,8 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:movie/utils/Shared%20Widget/book_mark.dart';
 import '../../../../utils/Shared Widget/custom_rate.dart';
 import '../../../../utils/EndPoint/const.dart';
-import '../../../film_details.dart';
+import '../../../film details/view/film_details.dart';
 import '../model/PopularMoviesModel.dart';
 
 class CustomPopularMovie extends StatelessWidget {
@@ -34,6 +35,7 @@ class CustomPopularMovie extends StatelessWidget {
                 child: Row(
                   children: [
                     InkWell(
+                      overlayColor: WidgetStateColor.transparent,
                         onTap: () {
                           Navigator.pushNamed(
                             context,
@@ -47,7 +49,7 @@ class CustomPopularMovie extends StatelessWidget {
                               CachedNetworkImage(
                                 imageUrl:
                                     "${Const.path}${popularIndex?.posterPath ?? Const.wrongImagePoster}",
-                                height: 220,
+                                height: MediaQuery.of(context).size.height * 0.28,
                                 fit: BoxFit.fill,
                                 placeholder: (context, text) => const Center(
                                     child: CircularProgressIndicator(
@@ -56,12 +58,12 @@ class CustomPopularMovie extends StatelessWidget {
                                 errorWidget: (context, url, error) =>
                                     const Icon(Icons.error),
                               ),
-                              // const BookMark()
+                              BookMark()
                             ],
                           ),
                         )),
                     SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.05,
+                      width: MediaQuery.of(context).size.width * 0.03,
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,10 +71,13 @@ class CustomPopularMovie extends StatelessWidget {
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.15,
                         ),
-                        Text(
-                          softWrap: true,
-                          popularIndex?.originalTitle ?? "",
-                          style: Theme.of(context).textTheme.bodyLarge,
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.5,
+                          child: Text(
+                            maxLines: 2,
+                            popularIndex?.title ?? "",
+                            style: Theme.of(context).textTheme.bodyLarge,
+                          ),
                         ),
                         Text(
                           popularIndex?.releaseDate ?? "",

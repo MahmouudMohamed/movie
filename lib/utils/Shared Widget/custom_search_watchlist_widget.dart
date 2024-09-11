@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-import '../../Features/film_details.dart';
+import '../../Features/film details/view/film_details.dart';
 import '../EndPoint/const.dart';
 import 'custom_rate.dart';
 
@@ -38,9 +38,7 @@ class CustomSearchWatchlistWidget extends StatelessWidget {
               width: MediaQuery.of(context).size.width * 0.45,
               height: MediaQuery.of(context).size.height * 0.30,
               child: CachedNetworkImage(
-                imageUrl: poster == null
-                    ? Const.wrongImagePoster
-                    : "${Const.path}$poster",
+                imageUrl:"${Const.path}$poster",
                 fit: BoxFit.fill,
                 height: MediaQuery.sizeOf(context).height * 0.29,
                 width: MediaQuery.sizeOf(context).height * 0.20,

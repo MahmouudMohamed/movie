@@ -7,12 +7,12 @@ import '../Recommended/view/recommended_widget.dart';
 class Home extends StatelessWidget {
   static const String routeName = "home1";
 
-   const Home({super.key});
+  const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: const SingleChildScrollView(
+    return const SafeArea(
+      child: SingleChildScrollView(
         child: Column(
           children: [
             PopularWidget(),
@@ -21,7 +21,7 @@ class Home extends StatelessWidget {
               padding: EdgeInsets.only(bottom: 20.0),
               child: RecommendedWidget(),
             ),
-      
+
           ],
         ),
       ),

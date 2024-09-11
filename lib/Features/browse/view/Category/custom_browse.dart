@@ -17,7 +17,7 @@ class CustomBrowse extends StatelessWidget {
           height: 15,
         ),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 18),
+          padding: const EdgeInsets.symmetric(horizontal: 18),
           child: Text("Browse Category",
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                     fontSize: 22,

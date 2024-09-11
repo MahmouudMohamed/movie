@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import '../../Features/film_details.dart';
+import '../../Features/film details/view/film_details.dart';
 import '../EndPoint/const.dart';
 import '../app_color.dart';
 import 'custom_rate.dart';
@@ -40,7 +40,8 @@ class CustomList extends StatelessWidget {
             child: Stack(
               children: [
                 CachedNetworkImage(
-                  imageUrl: "${Const.path}$poster",
+                  imageUrl:
+                  "${Const.path}$poster",
                   fit: BoxFit.fill,
                   height: height,
                   width: width,
@@ -48,9 +49,8 @@ class CustomList extends StatelessWidget {
                       child: CircularProgressIndicator(
                     color: Colors.yellow,
                   )),
-                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                  errorWidget: (context, url, error) => const Icon(Icons.error,color: Colors.white,),
                 ),
-                // const BookMark()
               ],
             ),
           ),
@@ -66,7 +66,7 @@ class CustomList extends StatelessWidget {
           ),
           Center(
             child: Text(
-              date.substring(0, 10),
+              date,
               style: Theme.of(context).textTheme.bodySmall,
             ),
           ),

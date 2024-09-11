@@ -5,7 +5,7 @@ import 'package:movie/utils/bloc_observer.dart';
 import 'package:movie/utils/my_theme_data.dart';
 import 'Features/browse/view/Category/browse.dart';
 import 'Features/browse/view/Category Details/browse_details.dart';
-import 'Features/film_details.dart';
+import 'Features/film details/view/film_details.dart';
 import 'Features/home/view/home.dart';
 import 'Features/search/view/search.dart';
 import 'home_screen.dart';
@@ -29,12 +29,12 @@ class MyApp extends StatelessWidget {
 
       routes: {
         HomeScreen.routeName: (context) => HomeScreen(),
-        Home.routeName: (context) => Home(),
-        Search.routeName: (context) => Search(),
-        Browse.routeName: (context) => Browse(),
+        Home.routeName: (context) => const Home(),
+        Search.routeName: (context) => const Search(),
+        Browse.routeName: (context) => const Browse(),
         WatchList.routeName: (context) => WatchList(),
-        BrowseDetails.routeName: (context) => BrowseDetails(),
-        FilmDetails.routeName: (context) => FilmDetails(),
+        BrowseDetails.routeName: (context) => const BrowseDetails(),
+        FilmDetails.routeName: (context) => const FilmDetails(),
       },
     );
   }

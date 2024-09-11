@@ -45,7 +45,7 @@ class CustomBrowserDetails extends StatelessWidget {
                         date: view.categoryModel?.results?[index].releaseDate ??
                             "",
                         title:
-                            view.categoryModel?.results?[index].originalTitle ??
+                            view.categoryModel?.results?[index].title ??
                                 "",
                         poster:
                             view.categoryModel?.results?[index].posterPath ??

@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 
 class BookMark extends StatefulWidget {
-  const BookMark({super.key});
+  bool checkMark = false;
+   BookMark({super.key});
 
   @override
   State<BookMark> createState() => _BookMarkState();
 }
-bool checkMark = false;
-
 
 class _BookMarkState extends State<BookMark> {
   @override
@@ -15,10 +14,10 @@ class _BookMarkState extends State<BookMark> {
     return InkWell(
         onTap: () {
           setState(() {
-            checkMark = !checkMark;
+            widget.checkMark = !widget.checkMark;
           });
         },
-        child: checkMark
+        child: widget.checkMark
             ? Image.asset("assets/images/bookmark.png")
             : Image.asset("assets/images/unbookmark.png"));
   }

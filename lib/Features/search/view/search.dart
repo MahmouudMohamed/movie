@@ -20,7 +20,8 @@ class Search extends StatelessWidget {
               body: Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: SafeArea(
-                  child: Column(children: [
+                  child: Column(
+                      children: [
                     TextFormField(
                       style: GoogleFonts.inter(
                         color: Colors.white,
