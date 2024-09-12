@@ -8,7 +8,7 @@ import 'Features/film details/view/film_details.dart';
 import 'Features/home/view/home.dart';
 import 'Features/search/view/search.dart';
 import 'Features/watch_list/watch_list.dart';
-import 'home_screen.dart';
+import 'utils/home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

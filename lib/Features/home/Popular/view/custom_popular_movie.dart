@@ -28,7 +28,7 @@ class CustomPopularMovie extends StatelessWidget {
         baseColor: Colors.grey[300]!,
           highlightColor: Colors.grey[100]!,
           child: Container(
-            height: MediaQuery.of(context).size.height * 0.26,
+            height: MediaQuery.of(context).size.height * 0.25,
             width: MediaQuery.of(context).size.width,
             color: Colors.grey[600]!,
           ),
@@ -63,7 +63,7 @@ class CustomPopularMovie extends StatelessWidget {
                                   highlightColor: Colors.grey[100]!,
                                   child: Container(
                                     height: MediaQuery.of(context).size.height * 0.28,
-                                    width: MediaQuery.of(context).size.width * 0.38,
+                                    width: MediaQuery.of(context).size.width * 0.40,
                                     color: Colors.grey[600]!,
                                   ),
                                 ),

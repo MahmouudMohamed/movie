@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'Features/home/View_Model/home_cubit.dart';
+import '../Features/home/View_Model/home_cubit.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
