@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movie/utils/Shared%20Widget/book_mark.dart';
+import 'package:shimmer/shimmer.dart';
 import '../../Features/film details/view/film_details.dart';
 import '../EndPoint/const.dart';
 import '../app_color.dart';
@@ -35,7 +36,7 @@ class CustomList extends StatelessWidget {
           InkWell(
             overlayColor: WidgetStateColor.transparent,
             onTap: () {
-              Navigator.pushReplacementNamed(context, FilmDetails.routeName,
+              Navigator.pushNamed(context, FilmDetails.routeName,
                   arguments: id);
             },
             child: Stack(
@@ -46,10 +47,15 @@ class CustomList extends StatelessWidget {
                   fit: BoxFit.fill,
                   height: height,
                   width: width,
-                  placeholder: (context, text) => const Center(
-                      child: CircularProgressIndicator(
-                    color: Colors.yellow,
-                  )),
+                  placeholder: (context, text) => Shimmer.fromColors(
+                    baseColor: Colors.grey[300]!,
+                    highlightColor: Colors.grey[100]!,
+                    child: Container(
+                      width: width,
+                      height: height,
+                      color: Colors.grey[600]!,
+                    ),
+                  ),
                   errorWidget: (context, url, error) => const Icon(Icons.error,color: Colors.white,),
                 ),
                 BookMark(id: id)
