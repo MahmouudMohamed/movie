@@ -1,49 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class BookMark extends StatefulWidget {
-  bool checkMark = false;
-   BookMark({super.key});
+import '../../Features/watch_list/view_model/watch_list_cubit.dart';
 
-  @override
-  State<BookMark> createState() => _BookMarkState();
-}
+class BookMark extends StatelessWidget {
+  int id;
 
-class _BookMarkState extends State<BookMark> {
+  BookMark({super.key, required this.id});
+
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-        onTap: () {
-          setState(() {
-            widget.checkMark = !widget.checkMark;
-          });
-        },
-        child: widget.checkMark
-            ? Image.asset("assets/images/bookmark.png")
-            : Image.asset("assets/images/unbookmark.png"));
+    return BlocBuilder<WatchListCubit, WatchListState>(
+      builder: (context, state) {
+        var watchList = WatchListCubit.get(context);
+        if(state is AddMoviesWatchListLoadingState){
+          return const Center(
+            child: CircularProgressIndicator(
+              color: Colors.yellow,
+            ),
+          );
+        }
+
+        bool isAddedWatchList = watchList.watchListModel?.results?.any((
+            e) => e.id == id ? true : false) ?? false;
+        return InkWell(
+            onTap: () {
+              watchList.addToWatchList(
+                isWatchList: isAddedWatchList ? false : true,
+                id: id,
+              );
+
+            },
+            child: isAddedWatchList ?
+            Image.asset(
+                "assets/images/bookmark.png")
+                : Image.asset(
+                "assets/images/unbookmark.png"));
+      },
+    );
   }
-
 }
-
-//import 'package:flutter/material.dart';
-//
-// class BookMark extends StatefulWidget {
-//   const BookMark({super.key});
-//
-//   @override
-//   State<BookMark> createState() => _BookMarkState();
-// }  bool checkMark = false;
-//
-//
-// class _BookMarkState extends State<BookMark> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return InkWell(
-//         onTap: () {
-//           setState(() {
-//             checkMark=!checkMark;
-//           });
-//         },
-//         child: checkMark
-//             ? Image.asset("assets/images/bookmark.png")
-//             : Image.asset("assets/images/unbookmark.png"));
-//   }

@@ -58,7 +58,7 @@ class CustomPopularMovie extends StatelessWidget {
                                 errorWidget: (context, url, error) =>
                                     const Icon(Icons.error),
                               ),
-                              BookMark()
+                              BookMark(id: popularIndex!.id!,)
                             ],
                           ),
                         )),

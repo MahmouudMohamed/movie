@@ -9,6 +9,7 @@ class CategoryChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 150,
+        width: 80,
       decoration: BoxDecoration(
           color: Colors.transparent,
           borderRadius: BorderRadius.circular(15),

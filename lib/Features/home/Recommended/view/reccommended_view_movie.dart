@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie/utils/EndPoint/const.dart';
 import 'package:movie/utils/Shared%20Widget/custom_list.dart';
 import '../../View_Model/home_cubit.dart';
 
@@ -53,10 +54,10 @@ class RecommendedViewMovie extends StatelessWidget {
                       title: cubit.recommendedModel?.results![index]
                               .originalTitle ??
                           "",
-                      poster:
-                          cubit.recommendedModel?.results?[index].posterPath ??
-                              "",
-                      id: cubit.recommendedModel?.results?[index].id ?? 0);
+                      poster:cubit.recommendedModel?.results?[index].posterPath==null?Const.wrongImagePoster:
+                          cubit.recommendedModel!.results![index].posterPath!
+                              ,
+                      id: cubit.recommendedModel!.results![index].id!);
                 },
                 itemCount: cubit.recommendedModel?.results?.length ?? 0,
               ),

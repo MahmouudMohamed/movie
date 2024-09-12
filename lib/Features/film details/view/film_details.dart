@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie/Features/film%20details/view%20model/film_detalis_cubit.dart';
 import 'package:movie/Features/film%20details/view/similar_movies.dart';
+import 'package:movie/Features/watch_list/view_model/watch_list_cubit.dart';
 import '../../../utils/EndPoint/const.dart';
 import 'custom_detalis.dart';
 
@@ -14,12 +15,19 @@ class FilmDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var id = ModalRoute.of(context)?.settings.arguments as dynamic;
-    return BlocProvider(
+    return MultiBlocProvider(
+  providers: [
+    BlocProvider(
       create: (context) => FilmDetailsCubit()
         ..getMovieDetails(id)
         ..getSimilarMovieDetails(id)
         ..getVideoMovie(id),
-      child: BlocBuilder<FilmDetailsCubit, FilmDetailsState>(
+),
+    BlocProvider(
+      create: (context) => WatchListCubit()..getWatchList(),
+    ),
+  ],
+  child: BlocBuilder<FilmDetailsCubit, FilmDetailsState>(
         builder: (context, state) {
           var cubit = FilmDetailsCubit.get(context);
           if (state is MovieDetailsLoadingState ||
@@ -109,6 +117,6 @@ class FilmDetails extends StatelessWidget {
           return Container();
         },
       ),
-    );
+);
   }
 }

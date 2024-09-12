@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../watch_list/view_model/watch_list_cubit.dart';
 import '../../view_model/category_cubit.dart';
 import 'custom_browser_details.dart';
 class BrowseDetails extends StatelessWidget {
@@ -11,10 +12,17 @@ class BrowseDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final arguments = ModalRoute.of(context)!.settings.arguments as dynamic;
-    return BlocProvider(
+    return MultiBlocProvider(
+  providers: [
+    BlocProvider(
       create: (context) =>
           CategoryCubit()..getBrowseShow(arguments.id.toString()),
-      child: BlocBuilder<CategoryCubit, CategoryState>(
+),
+    BlocProvider(
+      create: (context) => WatchListCubit()..getWatchList(),
+    ),
+  ],
+  child: BlocBuilder<CategoryCubit, CategoryState>(
         builder: (context, state) {
           if (state is BrowseShowLoadingState) {
             return const Center(
@@ -38,6 +46,6 @@ class BrowseDetails extends StatelessWidget {
           return Container();
         },
       ),
-    );
+);
   }
 }

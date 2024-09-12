@@ -1,5 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:movie/Features/watch_list/view_model/watch_list_cubit.dart';
+import 'package:movie/utils/Shared%20Widget/book_mark.dart';
 
 import '../../../utils/EndPoint/const.dart';
 import '../../../utils/Shared Widget/category_chip.dart';
@@ -17,6 +19,7 @@ class CustomDetalis extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var cubit=FilmDetailsCubit.get(context);
+    var view=WatchListCubit.get(context);
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -24,16 +27,23 @@ class CustomDetalis extends StatelessWidget {
           padding: const EdgeInsets.only(left: 10.0),
           child: Column(
             children: [
-              CachedNetworkImage(
-                imageUrl:'${Const.path}${cubit.movieDetailsModel?.posterPath??""}',
-                height: MediaQuery.sizeOf(context).height * 0.3,
-                width: MediaQuery.sizeOf(context).width * 0.45,
-                placeholder: (context, text) => const Center(
-                    child: CircularProgressIndicator(
-                      color: Colors.yellow,
-                    )),
-                errorWidget: (context, url, error) =>
-                const Icon(Icons.error,color: Colors.white,),
+              Stack(
+                children: [
+                  CachedNetworkImage(
+                    imageUrl:'${Const.path}${cubit.movieDetailsModel?.posterPath??""}',
+                    height: MediaQuery.sizeOf(context).height * 0.3,
+                    width: MediaQuery.sizeOf(context).width * 0.45,
+                    placeholder: (context, text) => const Center(
+                        child: CircularProgressIndicator(
+                          color: Colors.yellow,
+                        )),
+                    errorWidget: (context, url, error) =>
+                    const Icon(Icons.error,color: Colors.white,),
+                  ),
+
+                  BookMark(id: id),
+
+                ],
               ),
               const SizedBox(height: 5,),
               Video(id: id),
@@ -44,7 +54,7 @@ class CustomDetalis extends StatelessWidget {
         ),
 
         SizedBox(
-          width: MediaQuery.sizeOf(context).height * 0.01,
+          width: MediaQuery.sizeOf(context).height * 0.009,
         ),
         Expanded(
           child:
@@ -58,7 +68,7 @@ class CustomDetalis extends StatelessWidget {
                 const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     mainAxisExtent: 30,
-                    crossAxisSpacing: 10,
+                    crossAxisSpacing: 6,
                     mainAxisSpacing: 10),
                 itemCount: cubit.movieDetailsModel?.genres
                     ?.length ??

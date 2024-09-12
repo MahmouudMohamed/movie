@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:movie/utils/Shared%20Widget/book_mark.dart';
 
 import '../../Features/film details/view/film_details.dart';
 import '../EndPoint/const.dart';
@@ -37,16 +38,22 @@ class CustomSearchWatchlistWidget extends StatelessWidget {
               alignment: Alignment.topLeft,
               width: MediaQuery.of(context).size.width * 0.45,
               height: MediaQuery.of(context).size.height * 0.30,
-              child: CachedNetworkImage(
-                imageUrl:"${Const.path}$poster",
-                fit: BoxFit.fill,
-                height: MediaQuery.sizeOf(context).height * 0.29,
-                width: MediaQuery.sizeOf(context).height * 0.20,
-                placeholder: (context, text) => const Center(
-                    child: CircularProgressIndicator(
-                  color: Colors.yellow,
-                )),
-                errorWidget: (context, url, error) => const Icon(Icons.error),
+              child: Stack(
+                children: [
+                  CachedNetworkImage(
+
+                    imageUrl:"${Const.path}$poster",
+                    fit: BoxFit.fill,
+                    height: MediaQuery.sizeOf(context).height * 0.29,
+                    width: MediaQuery.sizeOf(context).height * 0.20,
+                    placeholder: (context, text) => const Center(
+                        child: CircularProgressIndicator(
+                      color: Colors.yellow,
+                    )),
+                    errorWidget: (context, url, error) => const Icon(Icons.error),
+                  ),
+                  BookMark(id: id)
+                ],
               ),
             ),
           ),

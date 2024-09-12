@@ -29,7 +29,7 @@ class Video extends StatelessWidget {
                       context: context,
                       builder: (context) {
                         return AlertDialog(
-                            backgroundColor: Colors.black12.withOpacity(0.5),
+                            backgroundColor: Colors.black.withOpacity(0.6),
                             title: const Center(
                                 child: Text(
                               "Choose Trailer",
