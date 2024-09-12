@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movie/utils/Shared%20Widget/book_mark.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../../Features/film details/view/film_details.dart';
 import '../EndPoint/const.dart';
@@ -44,13 +45,18 @@ class CustomSearchWatchlistWidget extends StatelessWidget {
 
                     imageUrl:"${Const.path}$poster",
                     fit: BoxFit.fill,
-                    height: MediaQuery.sizeOf(context).height * 0.29,
-                    width: MediaQuery.sizeOf(context).height * 0.20,
-                    placeholder: (context, text) => const Center(
-                        child: CircularProgressIndicator(
-                      color: Colors.yellow,
-                    )),
-                    errorWidget: (context, url, error) => const Icon(Icons.error),
+                    height: MediaQuery.sizeOf(context).height * 0.30,
+                    width: MediaQuery.sizeOf(context).width * 0.40,
+                    placeholder: (context, text) => Shimmer.fromColors(
+                      baseColor: Colors.grey[300]!,
+                      highlightColor: Colors.grey[100]!,
+                      child: Container(
+                        height: MediaQuery.sizeOf(context).height * 0.30,
+                        width: MediaQuery.sizeOf(context).width * 0.40,
+                        color: Colors.grey[600]!,
+                      ),
+                    ),
+                    errorWidget: (context, url, error) => const Icon(Icons.error,color: Colors.white,),
                   ),
                   BookMark(id: id)
                 ],

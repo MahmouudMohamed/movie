@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movie/Features/watch_list/view_model/watch_list_cubit.dart';
 import 'package:movie/utils/Shared%20Widget/book_mark.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../../../utils/EndPoint/const.dart';
 import '../../../utils/Shared Widget/category_chip.dart';
@@ -33,10 +34,15 @@ class CustomDetalis extends StatelessWidget {
                     imageUrl:'${Const.path}${cubit.movieDetailsModel?.posterPath??""}',
                     height: MediaQuery.sizeOf(context).height * 0.3,
                     width: MediaQuery.sizeOf(context).width * 0.45,
-                    placeholder: (context, text) => const Center(
-                        child: CircularProgressIndicator(
-                          color: Colors.yellow,
-                        )),
+                    placeholder: (context, text) => Shimmer.fromColors(
+                      baseColor: Colors.grey[300]!,
+                      highlightColor: Colors.grey[100]!,
+                      child: Container(
+                        height: MediaQuery.sizeOf(context).height * 0.3,
+                        width: MediaQuery.sizeOf(context).width * 0.45,
+                        color: Colors.grey[600]!,
+                      ),
+                    ),
                     errorWidget: (context, url, error) =>
                     const Icon(Icons.error,color: Colors.white,),
                   ),

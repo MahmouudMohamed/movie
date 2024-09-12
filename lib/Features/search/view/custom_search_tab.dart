@@ -56,67 +56,7 @@ class CustomSearchTab extends StatelessWidget {
                   title: cubit.searchModel?.results?[index].title ?? '',
                   poster: cubit.searchModel?.results?[index].posterPath ?? "",
                   id: cubit.searchModel!.results![index].id!)
-              //     Row(
-              //   children: [
-              //     InkWell(
-              //       onTap: () {
-              //         Navigator.pushNamed(context, FilmDetails.routeName,
-              //             arguments:
-              //                 cubit.searchModel?.results?[index].id ?? 0);
-              //       },
-              //       child: Container(
-              //         alignment: Alignment.topLeft,
-              //         width: MediaQuery.of(context).size.width * 0.45,
-              //         height: MediaQuery.of(context).size.height * 0.30,
-              //         child: CachedNetworkImage(
-              //           imageUrl: cubit
-              //                       .searchModel?.results?[index].posterPath ==
-              //                   null
-              //               ? Const.wrongImagePoster
-              //               : 'https://image.tmdb.org/t/p/w500'
-              //                   '${cubit.searchModel?.results?[index].posterPath}',
-              //           fit: BoxFit.fill,
-              //           height: MediaQuery.sizeOf(context).height * 0.29,
-              //           width: MediaQuery.sizeOf(context).height * 0.20,
-              //           placeholder: (context, text) => const Center(
-              //               child: CircularProgressIndicator(
-              //             color: Colors.yellow,
-              //           )),
-              //           errorWidget: (context, url, error) =>
-              //               const Icon(Icons.error),
-              //         ),
-              //       ),
-              //     ),
-              //
-              //     Expanded(
-              //       child: Column(
-              //         crossAxisAlignment: CrossAxisAlignment.start,
-              //         children: [
-              //           Text(
-              //             cubit.searchModel?.results?[index].title ?? '',
-              //             style:Theme.of(context).textTheme.titleLarge,
-              //             maxLines: 2,
-              //           ),
-              //           const SizedBox(
-              //             height: 5,
-              //           ),
-              //           Text(
-              //             cubit.searchModel?.results?[index].releaseDate ?? '',
-              //             style: Theme.of(context).textTheme.titleLarge?.
-              //             copyWith(fontSize: 13),
-              //           ),
-              //           const SizedBox(
-              //             height: 5,
-              //           ),
-              //           CustomRate(
-              //               vote:
-              //                   "${cubit.searchModel?.results?[index].voteAverage}".substring(0,3)??
-              //                       '')
-              //         ],
-              //       ),
-              //     ),
-              //   ],
-              // ),
+
               ),
         );
       }

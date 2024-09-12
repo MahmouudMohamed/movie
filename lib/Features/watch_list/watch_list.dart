@@ -41,9 +41,16 @@ class WatchList extends StatelessWidget {
               return  Center(
                 child: Column(
                   children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 18),
+                      child: Text("Watch List",
+                          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                            fontSize: 22,
+                          )),),
                     SizedBox(
                       height: MediaQuery.sizeOf(context).height * 0.40,
                     ),
+
                     Image.asset(
                       "assets/images/empty.png",
                     ),
@@ -61,7 +68,17 @@ class WatchList extends StatelessWidget {
                 body: Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
+                  Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 18),
+                  child: Text("Watch List",
+                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                        fontSize: 22,
+                      )),),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.02,
+                      ),
                       Expanded(
                         child: ListView.separated(
                           itemCount: watchList.watchListModel?.results?.length ?? 0,

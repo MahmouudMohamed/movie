@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie/Features/film%20details/view%20model/film_detalis_cubit.dart';
 import 'package:movie/Features/film%20details/view/similar_movies.dart';
 import 'package:movie/Features/watch_list/view_model/watch_list_cubit.dart';
+import 'package:shimmer/shimmer.dart';
 import '../../../utils/EndPoint/const.dart';
 import 'custom_detalis.dart';
 
@@ -73,10 +74,15 @@ class FilmDetails extends StatelessWidget {
                       fit: BoxFit.fill,
                       height: MediaQuery.sizeOf(context).height * 0.3,
                       width: double.infinity,
-                      placeholder: (context, text) => const Center(
-                          child: CircularProgressIndicator(
-                        color: Colors.yellow,
-                      )),
+                      placeholder: (context, text) => Shimmer.fromColors(
+                        baseColor: Colors.grey[300]!,
+                        highlightColor: Colors.grey[100]!,
+                        child: Container(
+                          height: MediaQuery.sizeOf(context).height * 0.3,
+                          width: double.infinity,
+                          color: Colors.grey[600]!,
+                        ),
+                      ),
                       errorWidget: (context, url, error) =>
                           const Icon(Icons.error),
                     ),

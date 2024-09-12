@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie/utils/EndPoint/const.dart';
 import 'package:movie/utils/Shared%20Widget/custom_list.dart';
+import 'package:movie/utils/Shimmer/shimmer_card.dart';
 import '../../View_Model/home_cubit.dart';
 
 class RecommendedViewMovie extends StatelessWidget {
@@ -15,10 +16,9 @@ class RecommendedViewMovie extends StatelessWidget {
         builder: (context, state) {
           var cubit = HomeCubit.get(context);
           if (state is RecommendedLoadingState) {
-            return const Center(
-                child: CircularProgressIndicator(
-              color: Colors.yellow,
-            ));
+            return  Center(
+                child: ShimmerCard(heightSizedBox: 0.34,heightContainerImage: 0.27,widthContainerImage: 0.40,)
+            );
           }
           if (state is RecommendedErrorState) {
             return Center(

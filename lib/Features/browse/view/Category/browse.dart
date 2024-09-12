@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../utils/Shimmer/shimmer_grid.dart';
 import '../../view_model/category_cubit.dart';
 
 import 'custom_browse.dart';
@@ -18,11 +19,7 @@ class Browse extends StatelessWidget {
       child: BlocBuilder<CategoryCubit, CategoryState>(
         builder: (context, state) {
           if(state is GenreMovieLoadingState){
-            return const Center(
-              child: CircularProgressIndicator(
-                color: Colors.yellow,
-              )
-            );
+            return const ShimmerGrid();
           }
           if (state is GenreMovieErrorState) {
             return const Center(

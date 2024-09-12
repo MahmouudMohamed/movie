@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movie/utils/Shared%20Widget/book_mark.dart';
+import 'package:shimmer/shimmer.dart';
 import '../../../../utils/Shared Widget/custom_rate.dart';
 import '../../../../utils/EndPoint/const.dart';
 import '../../../film details/view/film_details.dart';
@@ -23,9 +24,15 @@ class CustomPopularMovie extends StatelessWidget {
               imageUrl:
                   "${Const.path}${popularIndex?.backdropPath ?? Const.wrongImageBack}",
               fit: BoxFit.cover,
-              placeholder: (context, text) => const CircularProgressIndicator(
-                color: Colors.yellow,
-              ),
+              placeholder: (context, text) =>  Shimmer.fromColors(
+        baseColor: Colors.grey[300]!,
+          highlightColor: Colors.grey[100]!,
+          child: Container(
+            height: MediaQuery.of(context).size.height * 0.26,
+            width: MediaQuery.of(context).size.width,
+            color: Colors.grey[600]!,
+          ),
+        ),
               errorWidget: (context, url, error) => const Icon(Icons.error),
             ),
             Positioned(
@@ -51,10 +58,15 @@ class CustomPopularMovie extends StatelessWidget {
                                     "${Const.path}${popularIndex?.posterPath ?? Const.wrongImagePoster}",
                                 height: MediaQuery.of(context).size.height * 0.28,
                                 fit: BoxFit.fill,
-                                placeholder: (context, text) => const Center(
-                                    child: CircularProgressIndicator(
-                                  color: Colors.yellow,
-                                )),
+                                placeholder: (context, text)  => Shimmer.fromColors(
+                                  baseColor: Colors.grey[300]!,
+                                  highlightColor: Colors.grey[100]!,
+                                  child: Container(
+                                    height: MediaQuery.of(context).size.height * 0.28,
+                                    width: MediaQuery.of(context).size.width * 0.38,
+                                    color: Colors.grey[600]!,
+                                  ),
+                                ),
                                 errorWidget: (context, url, error) =>
                                     const Icon(Icons.error),
                               ),

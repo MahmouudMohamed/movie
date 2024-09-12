@@ -2,6 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie/utils/EndPoint/const.dart';
+import 'package:movie/utils/Shimmer/shimmer_card.dart';
+import 'package:redacted/redacted.dart';
 import 'package:shimmer/shimmer.dart';
 import '../../../../utils/Shared Widget/book_mark.dart';
 import '../../../film details/view/film_details.dart';
@@ -17,10 +19,15 @@ class NewReleasesViewMovie extends StatelessWidget {
       child: BlocBuilder<HomeCubit, HomeState>(builder: (context, state) {
         var view = HomeCubit.get(context);
         if (state is NewReleaseLoadingState) {
-          return const Center(
-              child: CircularProgressIndicator(
-            color: Colors.yellow,
-          ));
+          return ShimmerCard(heightSizedBox: 0.29,heightContainerImage: 0.28,widthContainerImage: 0.38,).redacted(
+                context: context,
+                redact: true,
+                configuration: RedactedConfiguration(
+                  animationDuration:
+                  const Duration(milliseconds: 800), //default
+                ),
+
+          );
         }
         if (state is NewReleaseErrorState) {
           return Center(

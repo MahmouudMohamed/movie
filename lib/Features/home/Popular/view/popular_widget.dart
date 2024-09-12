@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie/Features/home/Popular/view/custom_popular_movie.dart';
+import 'package:movie/utils/Shimmer/shimmer_popular.dart';
 
 import '../../View_Model/home_cubit.dart';
 
@@ -16,10 +17,7 @@ class PopularWidget extends StatelessWidget {
         builder: (context, state) {
           var cubit = HomeCubit.get(context);
           if (state is PopularLoadingState) {
-            return const Center(
-                child: CircularProgressIndicator(
-              color: Colors.yellow,
-            ));
+            return ShimmerPopular();
           }
           if (state is PopularErrorState) {
             return Center(
