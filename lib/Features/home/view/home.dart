@@ -15,7 +15,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => WatchListCubit()..getWatchList(),
-      child: SafeArea(
+      child: const SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [

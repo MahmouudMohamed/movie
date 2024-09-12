@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie/Features/watch_list/view_model/watch_list_cubit.dart';
 import 'package:movie/utils/bloc_observer.dart';
 import 'package:movie/utils/my_theme_data.dart';
 import 'Features/browse/view/Category/browse.dart';
@@ -22,24 +21,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => WatchListCubit()..getWatchList(),
-      child: MaterialApp(
-        themeMode: ThemeMode.light,
-        theme: MyThemeData.lightTheme,
-        debugShowCheckedModeBanner: false,
-        initialRoute: HomeScreen.routeName,
+    return MaterialApp(
+      themeMode: ThemeMode.light,
+      theme: MyThemeData.lightTheme,
+      debugShowCheckedModeBanner: false,
+      initialRoute: HomeScreen.routeName,
 
-        routes: {
-          HomeScreen.routeName: (context) => HomeScreen(),
-          Home.routeName: (context) => const Home(),
-          Search.routeName: (context) => const Search(),
-          Browse.routeName: (context) => const Browse(),
-          WatchList.routeName: (context) => WatchList(),
-          BrowseDetails.routeName: (context) => const BrowseDetails(),
-          FilmDetails.routeName: (context) => const FilmDetails(),
-        },
-      ),
+      routes: {
+        HomeScreen.routeName: (context) => HomeScreen(),
+        Home.routeName: (context) => const Home(),
+        Search.routeName: (context) => const Search(),
+        Browse.routeName: (context) => const Browse(),
+        WatchList.routeName: (context) => const WatchList(),
+        BrowseDetails.routeName: (context) => const BrowseDetails(),
+        FilmDetails.routeName: (context) => const FilmDetails(),
+      },
     );
   }
 }

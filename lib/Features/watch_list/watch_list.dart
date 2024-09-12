@@ -25,12 +25,12 @@ class WatchList extends StatelessWidget {
             );
           }
           if (state is GetMoviesWatchListErrorState) {
-            return Center(
+            return const Center(
               child: Column(
                 children: [
                   Text(
                     "Some Error Occurred",
-                    style: const TextStyle(color: Colors.white),
+                    style: TextStyle(color: Colors.white),
                   ),
                 ],
               ),
@@ -86,7 +86,7 @@ class WatchList extends StatelessWidget {
                 ),
               ),
             );
-          };
+          }
           return const SizedBox();
         }),
     );

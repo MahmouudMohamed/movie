@@ -23,17 +23,19 @@ class HomeCubit extends Cubit<HomeState> {
     const Home(),
     const Search(),
     const Browse(),
-    WatchList(),
+    const WatchList(),
   ];
   PopularMoviesModel? popularMoviesModel;
   NewReleaseModel? newReleaseModel;
   RecommendedModel? recommendedModel;
 
   bool checkMark = false;
+
   changeBookMark() {
     checkMark = !checkMark;
     emit(ChangeBookMarkState());
   }
+
   changeHomeScreen(value) {
     index = value;
     emit(ChangeHomeState());

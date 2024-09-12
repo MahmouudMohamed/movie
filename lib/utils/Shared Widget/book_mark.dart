@@ -13,11 +13,9 @@ class BookMark extends StatelessWidget {
     return BlocBuilder<WatchListCubit, WatchListState>(
       builder: (context, state) {
         var watchList = WatchListCubit.get(context);
-        if(state is AddMoviesWatchListLoadingState){
-          return const Center(
-            child: CircularProgressIndicator(
-              color: Colors.yellow,
-            ),
+        if (state is AddMoviesWatchListLoadingState) {
+          return const CircularProgressIndicator(
+            color: Colors.yellow,
           );
         }
 
@@ -29,7 +27,6 @@ class BookMark extends StatelessWidget {
                 isWatchList: isAddedWatchList ? false : true,
                 id: id,
               );
-
             },
             child: isAddedWatchList ?
             Image.asset(
